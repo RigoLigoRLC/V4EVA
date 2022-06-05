@@ -34,6 +34,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef LIB_PYIN
 #define LIB_PYIN
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
   FP_TYPE fmin;     // minimum frequency
   FP_TYPE fmax;     // maximum frequency
@@ -52,6 +56,10 @@ typedef struct {
 pyin_config pyin_init(int nhop);
 int pyin_trange(int nq, FP_TYPE fmin, FP_TYPE fmax);
 FP_TYPE* pyin_analyze(pyin_config param, FP_TYPE* x, int nx, FP_TYPE fs, int* nfrm);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

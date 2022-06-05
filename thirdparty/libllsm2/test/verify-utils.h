@@ -32,8 +32,8 @@ static inline FP_TYPE empirical_kld(FP_TYPE* x, int nx, FP_TYPE* y, int ny) {
 static inline void test_empirical_kld() {
   int nx = 100000;
   int ny = 50000;
-  FP_TYPE* x_samples = calloc(nx, sizeof(FP_TYPE));
-  FP_TYPE* y_samples = calloc(ny, sizeof(FP_TYPE));
+  FP_TYPE* x_samples = (FP_TYPE*) calloc (nx, sizeof(FP_TYPE));
+  FP_TYPE* y_samples = (FP_TYPE*) calloc (ny, sizeof(FP_TYPE));
   for(int i = 0; i < nx; i ++)
     x_samples[i] = randn(1.0, 1.0);
   for(int i = 0; i < ny; i ++)
@@ -75,8 +75,8 @@ static inline void dither(FP_TYPE* dst, FP_TYPE* src, int nx) {
 
 static inline void verify_data_distribution(FP_TYPE* x, int nx,
   FP_TYPE* x_approx, int ny) {
-  FP_TYPE* x_dithered = calloc(nx, sizeof(FP_TYPE));
-  FP_TYPE* y_dithered = calloc(ny, sizeof(FP_TYPE));
+  FP_TYPE* x_dithered = (FP_TYPE*) calloc (nx, sizeof(FP_TYPE));
+  FP_TYPE* y_dithered = (FP_TYPE*) calloc (ny, sizeof(FP_TYPE));
   // This is to prevent numerical overflow when taking the log of a very small
   //   number in empirical_kld.
   dither(x_dithered, x, nx);
